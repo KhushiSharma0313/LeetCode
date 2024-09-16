@@ -1,35 +1,39 @@
 class Solution {
 public:
+
+bool isPalindrome(string s, int start, int end)
+{
+    while(start <end)
+    {
+        if(s[start] != s[end])
+        {
+            return false;
+        }
+        start++;
+        end--;
+
+    }
+    return true;
+}
     int countSubstrings(string s) {
-        // input = aaa 
-        // count itself first - count = string.length()
-        // palindorme logic - order of letters is same both ways 
-        // for(i - 0 to i - n)
-        // for (j - n to j -0)
-        // if(s[i] == s[j])
-        //{
-            // count++
-        //}
-        // count strings following this logic 
-        // return count
+        // go through each element 
+        // then for each element go through it's substring 
+        // then check if substring is plaindrome or not 
 
         int n = s.length();
         int count = 0;
-        int l = s[0];
-        int r = s[n];
 
-        for(int i =0; i<n; i++)
+        for(int i =0; i <n; i++)
         {
-            if(l==r)
+            for(int j =i; j < n; j++)
             {
-                count++;
-                l++;
-                r--;
+                if(isPalindrome(s, i, j))
+                {
+                    count++;
+                }
             }
-           
         }
-
-        return count;
-        
-    }
+         return count;
+        }
+       
 };
