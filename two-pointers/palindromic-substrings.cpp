@@ -1,4 +1,4 @@
-//brute force
+//optimized using two pointers
 class Solution {
 public:
 
