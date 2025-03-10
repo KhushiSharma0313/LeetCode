@@ -1,21 +1,38 @@
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        def hasNumber(input):
+        def hasNum(input):
             return any(char.isdigit() for char in input)
 
-        digit_log = []
-        letter_log = []
+        digit, letter = [], []
 
         for i, log in enumerate(logs):
-            vals = log.split(" ")
-            if hasNumber(vals[1:]): #digit log 
-                digit_log.append(log)
+            vals = log.split(" ") #splitting by space 
+            if hasNum(vals[1:]):
+                digit.append(log) #digit log
             else:
-                letter_log.append([' '.join(vals[1:]), vals[0], i])
+                letter.append([' '.join(vals[1: ]), vals[0], i])
         res = []
 
-        for log in sorted(letter_log):
+        for log in sorted(letter):
             res.append(logs[log[2]])
+
+        return res + digit        
+        # def hasNumber(input):
+        #     return any(char.isdigit() for char in input)
+
+        # digit_log = []
+        # letter_log = []
+
+        # for i, log in enumerate(logs):
+        #     vals = log.split(" ")
+        #     if hasNumber(vals[1:]): #digit log 
+        #         digit_log.append(log)
+        #     else:
+        #         letter_log.append([' '.join(vals[1:]), vals[0], i])
+        # res = []
+
+        # for log in sorted(letter_log):
+        #     res.append(logs[log[2]])
         
         return res + digit_log
         #split letter and digit 
