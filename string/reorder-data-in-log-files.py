@@ -34,7 +34,7 @@ class Solution:
         # for log in sorted(letter_log):
         #     res.append(logs[log[2]])
         
-        return res + digit_log
+        # return res + digit_log
         #split letter and digit 
         # if digit, add to digit log, don't do anything else
         #if letter log, process
