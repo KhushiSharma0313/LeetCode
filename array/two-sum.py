@@ -1,3 +1,16 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        result = []
+        n = len(nums)
+        for i in range(n):
+            for j in range(i+1,n):
+                if nums[i] + nums[j] == target:
+                    result.append(i)
+                    result.append(j)
+        return result
+
+
+
 # # one pass approach
 # class Solution:
 #     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -16,21 +29,21 @@
 #             result[nums[i]] = i
 #         return
 
-# two pass approach 
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        result = {}
-        for i in range(len(nums)):
-            result[nums[i]] = i
+# # two pass approach 
+# class Solution:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         result = {}
+#         for i in range(len(nums)):
+#             result[nums[i]] = i
         
-        for j in range(len(nums)):
-            diff = target - nums[j]
-            if diff in result and result[diff] !=j:
-                return [result[diff], j]
-        return
+#         for j in range(len(nums)):
+#             diff = target - nums[j]
+#             if diff in result and result[diff] !=j:
+#                 return [result[diff], j]
+#         return
 
 
-
+#brute force
 # #time complexity = O(n^2)
 # #space complexity = O(n)
 # class Solution:
