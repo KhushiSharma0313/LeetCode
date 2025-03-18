@@ -1,27 +1,45 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        result = []
-        n = len(nums)
-        for i in range(n):
-            for j in range(i+1,n):
-                if nums[i] + nums[j] == target:
-                    result.append(i)
-                    result.append(j)
-        return result
+        result = {}
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if diff in result:
+                return [result[diff],i]
+            result[nums[i]] = i 
+        return
+        
 
 
+
+
+#brute force
+# #time complexity = O(n^2)
+# #space complexity = O(n)
+# class Solution:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         # taking 1 number, then going to next number and checking if 1+2 = target or not, 
+#         # check till 2nd last number only, and check with last number out of the loop
+#         result = []
+#         for i in range(len(nums)):
+#             for j in range(i+1, len(nums)):
+#                 if nums[i] + nums[j] == target:
+#                     result.append(i)
+#                     result.append(j)
+#         return result
+      
 
 # # one pass approach
 # class Solution:
 #     def twoSum(self, nums: List[int], target: int) -> List[int]:
 #         # approach should be that 
-#         # to find diff for each number in array
+#         # to find diff for each number with target in array
 #         # make a hashmap of value to their index
 #         # then lookup that number in hashmap of the array, if it exists append to array, 
 #         # if not, add that number to hashmap and move on to next number
 #         # time complexity = O(n)
 #         # space complexity = O(n)
-#         result = {} # val: index
+          # key = number from nums, value = index
+#         result = {} # val: index, index is the key
 #         for i in range(len(nums)):
 #             diff = target - nums[i]
 #             if diff in result:
@@ -41,20 +59,3 @@ class Solution:
 #             if diff in result and result[diff] !=j:
 #                 return [result[diff], j]
 #         return
-
-
-#brute force
-# #time complexity = O(n^2)
-# #space complexity = O(n)
-# class Solution:
-#     def twoSum(self, nums: List[int], target: int) -> List[int]:
-#         # taking 1 number, then going to next number and checking if 1+2 = target or not, 
-#         # check till 2nd last number only, and check with last number out of the loop
-#         result = []
-#         for i in range(len(nums)):
-#             for j in range(i+1, len(nums)):
-#                 if nums[i] + nums[j] == target:
-#                     result.append(i)
-#                     result.append(j)
-#         return result
-      
