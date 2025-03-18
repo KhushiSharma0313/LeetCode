@@ -16,7 +16,7 @@ class Solution:
             q.append((r,c)) #add node in queue too 
 
             while q: #while q is not empty
-                row, col = q.pop() #if we do pop instead of pop left it will become dfs, iterative 
+                row, col = q.popleft() #if we do pop instead of pop left it will become dfs, iterative 
                 directions = [[1,0],[-1,0],[0,1],[0,-1]] #dir for right, left, up, down 
                 for dr, dc in directions: 
                     r = row+dr
