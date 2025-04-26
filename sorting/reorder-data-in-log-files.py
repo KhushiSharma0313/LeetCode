@@ -1,22 +1,41 @@
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        def hasNum(input):
-            return any(char.isdigit() for char in input)
-
-        digit, letter = [], []
-
-        for i, log in enumerate(logs):
-            vals = log.split(" ") #splitting by space 
-            if hasNum(vals[1:]):
-                digit.append(log) #digit log
-            else:
-                letter.append([' '.join(vals[1: ]), vals[0], i])
+        #dividing logs into digit and letter 
+        letter_log, digit_log = [], []
         res = []
 
-        for log in sorted(letter):
-            res.append(logs[log[2]])
+ # for each log, it dividen into digit or letter log 
+        for log in logs:
+            if log[-1].isdigit():
+                digit_log.append(log)
+            else:
+                letter_log.append(log)
 
-        return res + digit        
+# sort the letter logs, based on lexico order, and then order of identifier 
+        letter_log.sort(key=lambda x: (x.split()[1:], x.split()[0])) # 1st cond for lex, 2nd cond for identifer 
+        
+        res = letter_log + digit_log 
+        return res
+
+        # def hasNum(input):
+        #     return any(char.isdigit() for char in input)
+
+        # digit, letter = [], []
+
+        # for i, log in enumerate(logs):
+        #     vals = log.split(" ") #splitting by space 
+        #     if hasNum(vals[1:]):
+        #         digit.append(log) #digit log
+        #     else:
+        #         letter.append([' '.join(vals[1: ]), vals[0], i])
+        # res = []
+
+        # for log in sorted(letter):
+        #     res.append(logs[log[2]])
+
+        # return res + digit
+
+        
         # def hasNumber(input):
         #     return any(char.isdigit() for char in input)
 
