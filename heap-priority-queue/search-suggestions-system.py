@@ -13,9 +13,9 @@ class Solution:
             search = searchWord[i]
             # check for both left pointer and right pointer
             #check if the word has prefix, if not move the pointer 
-            while l <= r and (len(products[l]) < i or products[l][i] != search ):
+            while l <= r and (len(products[l]) <= i or products[l][i] != search ):
                 l += 1
-            while l <= r and (len(products[r]) < i or products[r][i] != search ):
+            while l <= r and (len(products[r]) <= i or products[r][i] != search ):
                 r -= 1
 
             #length of valid words 
