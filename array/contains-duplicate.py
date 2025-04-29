@@ -1,21 +1,9 @@
-# sorting, we won't need to check entire array, we can just check its neighbours
+# using a hashset since it only has unique elements 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        n = len(nums)
-        nums.sort()
-        if(len == 0):
-            return False
-        elif(len == 1):
-            return False
-        elif(len == 2):
-            if(nums[0] == nums[1]):
-                return True
-            else:
-                return False 
+        if len(set(nums)) < len(nums):
+            return True
         else:
-            for i in range(1,n):
-                if(nums[i] == nums[i-1]):
-                    return True
             return False
 
 
