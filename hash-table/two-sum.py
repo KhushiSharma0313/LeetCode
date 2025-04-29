@@ -1,16 +1,13 @@
+# use hash map, key = value in index itself, value = index 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        result = {}
+        result = {} #hashmap 
         for i in range(len(nums)):
             diff = target - nums[i]
             if diff in result:
                 return [result[diff],i]
-            result[nums[i]] = i 
+            result[nums[i]] = i
         return
-        
-
-
-
 
 #brute force
 # #time complexity = O(n^2)
