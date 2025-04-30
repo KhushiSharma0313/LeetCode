@@ -5,27 +5,44 @@
 #         self.left = left
 #         self.right = right
 
-#bfs 
-#i am thinking we can keep count of the levels, however many level, that's our max depth
+#if we want to use iterative dfs for some reason 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        level = 0 #no levels yet 
         if not root:
             return 0
+        stack = [[root,1]] #since we're at root, it's depth is 1 
+        res = 1 #since we're at depth 1 
+        while stack:
+            node, depth = stack.pop() # keep track of the node and its depth
+            if node:
+                res = max(res,depth) #maximum of itself and depth, core of dfs
+                #add those to stack  
+                stack.append([node.left,depth+1])
+                stack.append([node.right,depth+1])
+        return res
+
+
+# #bfs 
+# #i am thinking we can keep count of the levels, however many level, that's our max depth
+# class Solution:
+#     def maxDepth(self, root: Optional[TreeNode]) -> int:
+#         level = 0 #no levels yet 
+#         if not root:
+#             return 0
         
-        q = deque([root]) #queue with root as level 1 
- #while q is not emptly 
-        while q:
-            for i in range(len(q)):
-                node = q.popleft() #remove that node 
-                #if it's children exists then add those to queue 
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right) 
-            # each time we remove parent and add it's children it's a new level, so we increment it 
-            level += 1
-        return level
+#         q = deque([root]) #queue with root as level 1 
+#  #while q is not emptly 
+#         while q:
+#             for i in range(len(q)):
+#                 node = q.popleft() #remove that node 
+#                 #if it's children exists then add those to queue 
+#                 if node.left:
+#                     q.append(node.left)
+#                 if node.right:
+#                     q.append(node.right) 
+#             # each time we remove parent and add it's children it's a new level, so we increment it 
+#             level += 1
+#         return level
 
 # #recurisive dfs 
 # class Solution:
