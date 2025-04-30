@@ -44,7 +44,7 @@ class Solution:
             #     #otherwise increment 
             #     j +=1
             #use binary search to search for end time
-            bisect.bisect(intervals, (intervals[i][1],-1,-1))
+            j = bisect.bisect(intervals, (intervals[i][1],-1,-1))
             cache [i] = res = max(res, intervals[i][2] + dfs(j))
             return res
         
