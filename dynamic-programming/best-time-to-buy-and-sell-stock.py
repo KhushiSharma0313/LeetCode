@@ -29,9 +29,8 @@ class Solution:
                     sell +=1
                 elif temp > profit:
                     profit = temp 
-                # else:
-                #     buy +=1
-                #     sell +=1
+                else:
+                    sell +=1
         return profit
 
 
