@@ -27,11 +27,11 @@ class Solution:
                     buy +=1
                     sell +=1
                 temp = prices[sell] - prices[buy]
-                if temp > profit:
+                elif temp > profit:
                     profit = temp 
-                else:
-                    buy +=1
-                    sell +=1
+                # else:
+                #     buy +=1
+                #     sell +=1
         return profit
 
 
