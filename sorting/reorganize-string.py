@@ -13,11 +13,11 @@ class Solution:
         # to optimize this, we can store it in a heap, and max heap can have most occurences at first to pop out 
         #since python doesn't have by default max heap, we;ll use min heap, negate the occurences, and increment instead of decrement 
 
-        #edge cases 
-        if(len(s)==0):
-            return ""
-        if(len(s)==1):
-            return s[0]
+        # #edge cases 
+        # if(len(s)==0):
+        #     return ""
+        # if(len(s)==1):
+        #     return s[0]
         count = Counter(s) #using in built data structure of hashmap, which counts occurnece of char
         maxHeap = [[-cnt, char] for char,cnt in count.items() ] # declaring max heap in list comprehension, getting values from counter and negating the count 
 
