@@ -25,7 +25,7 @@ class Solution:
 
         while sell < n:
             temp = prices[sell] - prices[buy]
-            if sell < buy:
+            if prices[sell] < prices[buy]:
                 buy +=1
                 sell +=1
             elif temp > profit:
