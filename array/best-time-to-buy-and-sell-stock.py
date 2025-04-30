@@ -23,10 +23,10 @@ class Solution:
 
         for i in range(n):
             if sell< n:
+                temp = prices[sell] - prices[buy]
                 if sell < buy:
                     buy +=1
                     sell +=1
-                temp = prices[sell] - prices[buy]
                 elif temp > profit:
                     profit = temp 
                 # else:
