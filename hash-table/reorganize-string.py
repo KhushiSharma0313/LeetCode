@@ -16,6 +16,8 @@ class Solution:
         #edge cases 
         if(len(s)==0):
             return ""
+        if(len(s)==1):
+            return s[0]
         count = Counter(s) #using in built data structure of hashmap, which counts occurnece of char
         maxHeap = [[-cnt, char] for char,cnt in count.items() ] # declaring max heap in list comprehension, getting values from counter and negating the count 
 
