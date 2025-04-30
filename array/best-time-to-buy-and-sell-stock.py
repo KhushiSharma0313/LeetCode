@@ -1,5 +1,7 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        #time = O(n)
+        # space = O(1)
         # price i is price on ith day 
         # max prodit = day to buy stock and day to sell stock 
         # return max profit or 0 
@@ -21,16 +23,15 @@ class Solution:
         profit = 0 
         temp = 0
 
-        for i in range(n):
-            if sell< n:
-                temp = prices[sell] - prices[buy]
-                if sell < buy:
-                    buy +=1
-                    sell +=1
-                elif temp > profit:
-                    profit = temp 
-                else:
-                    sell +=1
+        while sell < n:
+            temp = prices[sell] - prices[buy]
+            if sell < buy:
+                buy +=1
+                sell +=1
+            elif temp > profit:
+                profit = temp 
+            else:
+                sell +=1
         return profit
 
 
