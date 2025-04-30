@@ -30,7 +30,9 @@ class Solution:
 
             #if it's value is in nagative or if its loss, we move buy 
             if prices[sell] < prices[buy]:
-                buy +=1
+                # buy +=1
+                #instead of moving it by one, move it to buy price, since it's lower 
+                buy = sell
             
             #if current is more than max, then assign max to current 
             elif profit > maxP:
