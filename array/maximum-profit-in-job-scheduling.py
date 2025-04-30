@@ -15,6 +15,9 @@ class Solution:
         # so clever sol is if you don't include job go to i+1, but if you do choose it, go to j, which is when jobs don't overlap 
 
         #if we sort start time, we'll lose the mapping for start and end time, so we'll put in one array with 3 parameters each 
+        #let's optimize this further
+        #instead of looping trhough to find j(next start time)
+        #we can just look for it by using binary search 
         intervals = zip(startTime, endTime, profit) #grouping all arrays together 
         intervals = sorted(intervals) #it's important that you put startTime first, since that's the basisthat they'll be sorted
         cache = {}
@@ -30,16 +33,18 @@ class Solution:
             #don't include 
             res = dfs(i+1)
 
-            #include 
-            #how do we find j 
-            #initialize at i+1
-            j = i+1
-            while j < len(intervals):
-                #if current node end time is less than next nodes start time, break
-                if intervals[i][1] <= intervals[j][0]:
-                    break
-                #otherwise increment 
-                j +=1
+            # #include 
+            # #how do we find j 
+            # #initialize at i+1
+            # j = i+1
+            # while j < len(intervals):
+            #     #if current node end time is less than next nodes start time, break
+            #     if intervals[i][1] <= intervals[j][0]:
+            #         break
+            #     #otherwise increment 
+            #     j +=1
+            #use binary search to search for end time
+            bisect.bisect(intervals, (intervals[i][1],-1,-1))
             cache [i] = res = max(res, intervals[i][2] + dfs(j))
             return res
         
