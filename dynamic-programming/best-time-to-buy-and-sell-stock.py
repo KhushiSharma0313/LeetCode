@@ -20,18 +20,25 @@ class Solution:
 
         n = len(prices)
         buy, sell = 0, 1 #two pointers starting in edges or list 
-        profit = 0 
-        temp = 0
+        maxP = 0 
+        profit = 0
 
+        #while it's sell is in bounds 
         while sell < n:
-            temp = prices[sell] - prices[buy]
+            #basic formula of profit
+            profit = prices[sell] - prices[buy]
+
+            #if it's value is in nagative or if its loss, we move buy 
             if prices[sell] < prices[buy]:
                 buy +=1
-            elif temp > profit:
-                profit = temp 
+            
+            #if current is more than max, then assign max to current 
+            elif profit > maxP:
+                maxP = profit
+            #if profit is not more than prev, move to diff sell value 
             else:
                 sell +=1
-        return profit
+        return maxP
 
 
 
