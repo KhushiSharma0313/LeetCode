@@ -26,7 +26,7 @@ class Solution:
                 temp = prices[sell] - prices[buy]
                 if temp > profit:
                     profit = temp 
-                else:
+                elif sell < buy:
                     buy +=1
                     sell +=1
         return profit
