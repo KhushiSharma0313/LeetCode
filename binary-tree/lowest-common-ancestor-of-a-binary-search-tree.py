@@ -20,9 +20,9 @@ class Solution:
 
         #go through each node,so until curr is null
         while curr:
-            #if one of nodes is root 
-            if p.val == root.val or q.val == root.val:
-                return root
+            # #if one of nodes is root 
+            # if p.val == root.val or q.val == root.val:
+            #     return root
             #when both nodes in left subtree
             if p.val < curr.val and q.val < curr.val:
                 curr = curr.left 
