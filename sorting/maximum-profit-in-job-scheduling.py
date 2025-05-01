@@ -15,12 +15,11 @@ class Solution:
         intervals = zip(startTime, endTime, profit)
         intervals = sorted(intervals) #sort it based on start time 
         res = 0
+        cache = {} 
         
         #we want to look through each interval to check profit 
         #helper function 
         def dfs(i):
-            #use a hashmap to store the intervals traversed 
-            cache = {} 
 
             if i == len(intervals):
                 return 0
