@@ -5,21 +5,41 @@
 #         self.left = left
 #         self.right = right
 
-#if we want to use iterative dfs for some reason 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        # add root and maxdepth of left or right subtree 
+
+        #base case 
         if not root:
             return 0
-        stack = [[root,1]] #since we're at root, it's depth is 1 
-        res = 1 #since we're at depth 1 
-        while stack:
-            node, depth = stack.pop() # keep track of the node and its depth
-            if node:
-                res = max(res,depth) #maximum of itself and depth, core of dfs
-                #add those to stack  
-                stack.append([node.left,depth+1])
-                stack.append([node.right,depth+1])
-        return res
+        
+        return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
+
+# #recurisive dfs 
+# class Solution:
+#     def maxDepth(self, root: Optional[TreeNode]) -> int:
+#         #base case 
+#         if not root:
+#             return 0 
+        
+#         #adding 1 for root, then checking in left and right subtree, whoever's depth is more is added
+#         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+# #if we want to use iterative dfs for some reason 
+# class Solution:
+#     def maxDepth(self, root: Optional[TreeNode]) -> int:
+#         if not root:
+#             return 0
+#         stack = [[root,1]] #since we're at root, it's depth is 1 
+#         res = 1 #since we're at depth 1 
+#         while stack:
+#             node, depth = stack.pop() # keep track of the node and its depth
+#             if node:
+#                 res = max(res,depth) #maximum of itself and depth, core of dfs
+#                 #add those to stack  
+#                 stack.append([node.left,depth+1])
+#                 stack.append([node.right,depth+1])
+#         return res
 
 
 # #bfs 
@@ -44,12 +64,3 @@ class Solution:
 #             level += 1
 #         return level
 
-# #recurisive dfs 
-# class Solution:
-#     def maxDepth(self, root: Optional[TreeNode]) -> int:
-#         #base case 
-#         if not root:
-#             return 0 
-        
-#         #adding 1 for root, then checking in left and right subtree, whoever's depth is more is added
-#         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
