@@ -15,7 +15,25 @@ class Solution:
         intervals = zip(startTime, endTime, profit)
         intervals = sorted(intervals) #sort it based on start time 
         res = 0
+        n = len(intervals)
         cache = {} 
+
+        #helper function binary search to get next interval's start time
+        def bs(end_time):
+            low, high = 0,n
+
+            #until it is in bounds, so low is less than high 
+            while low < high:
+                mid = (low + high) //2
+                #move to the right half
+                if intervals[mid][0] < end_time:
+                    low = mid+1 
+                #move to left half
+                else:
+                    high = mid 
+            return low 
+
+
         
         #we want to look through each interval to check profit 
         #helper function 
@@ -37,7 +55,7 @@ class Solution:
             #         break
             #     j+=1
             # insted of while looping through every element, we could go binary search of j 
-            j = bisect.bisect(intervals, (intervals[i][1], -1,-1))
+            j = bs(intervals[i][1])
             
             #store max profit in the cache 
             cache[i] = res = max(intervals[i][2] + dfs(j), dfs(i+1))
