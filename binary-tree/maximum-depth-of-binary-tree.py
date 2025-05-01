@@ -9,6 +9,8 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         #bfs, where we're gonna traverse layer by layer and just count layers at the end 
         #initialize queue and layer for bfs 
+        if not root:
+            return 0
         q = deque([root])
         layer = 0
 
