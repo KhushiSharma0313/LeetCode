@@ -7,13 +7,28 @@
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        # add root and maxdepth of left or right subtree 
+        #bfs, where we're gonna traverse layer by layer and just count layers at the end 
+        #initialize queue and layer for bfs 
+        q = deque([root])
+        layer = 0
 
-        #base case 
-        if not root:
-            return 0
+        while q: 
+            #iterating through each node in queue
+            for i in range(len(q)):
+                 # deleting the current node
+                node = q.popleft()
+                #if node has left subtree/node
+                if node.left:
+                    q.append(node.left)
+                #if node has right subtree/node
+                if node.right:
+                    q.append(node.right)
+            #increment layer after going through each node in the layer 
+            layer +=1
+           
         
-        return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
+        return layer
+
 
 # #recurisive dfs 
 # class Solution:
