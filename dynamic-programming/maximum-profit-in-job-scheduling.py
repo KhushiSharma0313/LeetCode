@@ -32,11 +32,13 @@ class Solution:
 
             #do wanna include 
             #we need to find start time of next interval that's greater or equal than end time of current interval 
-            j = i+1
-            while j < len(intervals):
-                if intervals[i][1] <= intervals[j][0]:
-                    break
-                j+=1
+            # j = i+1
+            # while j < len(intervals):
+            #     if intervals[i][1] <= intervals[j][0]:
+            #         break
+            #     j+=1
+            # insted of while looping through every element, we could go binary search of j 
+            j = bisect.bisect(intervals, (intervals[i][1], -1,-1))
             
             #store max profit in the cache 
             cache[i] = res = max(intervals[i][2] + dfs(j), dfs(i+1))
