@@ -1,4 +1,5 @@
 class ParkingSystem:
+
     # three types of spaces = b, m, s
     #fixed slots 
     #number of slots in constructor 
@@ -11,6 +12,8 @@ class ParkingSystem:
         self.spaces = [big, medium, small]
         
     def addCar(self, carType: int) -> bool:
+        if len(self.spaces) == 0:
+            return False
         if self.spaces[carType - 1]: 
             self.spaces[carType -1] -=1 
             return True 
