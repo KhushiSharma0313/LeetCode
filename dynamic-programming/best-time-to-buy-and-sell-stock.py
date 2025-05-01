@@ -11,7 +11,7 @@ class Solution:
             profit = prices[sell] - prices[buy]
             #that's when it's not profitable 
             if prices[buy] > prices[sell]:
-                buy +=1
+                buy = sell
             elif profit > maxP:
                 maxP = profit 
             else:
