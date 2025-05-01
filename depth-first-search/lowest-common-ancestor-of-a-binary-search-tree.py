@@ -5,60 +5,38 @@
 #         self.left = None
 #         self.right = None
 
+
+
+
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        curr = root
+        #brute force is doing dfs for both nodes, and finding common lowest node
+        #for bst l < root < r
+        # for lca, in case of 2 and 8, it was 6 becuase both were in different sub trees
+        # or one of them is root 
+        # or one of them is parent and other is child
+        #point is whenever they're not in same subtree, we can find lca 
+        #start at the root, since it's common ancestor to all 
+        #move down, then check if elements are in same subtree or diff by comparing it to root 
 
-        if not root:
-            return
+        #pointer to move from node to node in tree, start at root 
+        curr = root 
 
+        #go through each node,so until curr is null
         while curr:
-            #if one of them is root 
+            #if one of nodes is root 
             if p.val == root.val or q.val == root.val:
                 return root
-            #if both of them in left subtree
-            elif p.val< curr.val and q.val<curr.val:
+            #when both nodes in left subtree
+            if p.val < curr.val and q.val < curr.val:
                 curr = curr.left 
-            # if both of them in right subtree
-            elif p.val > curr.val and q.val >curr.val:
-                curr = curr.right 
-            # when both of them are in diff subtrees, their parent, or current node is their lca
-            else: 
+            #when both nodes in right subtree
+            elif p.val > curr.val and q.val > curr.val:
+                curr = curr.right
+            #when both node in diff subtree, or one of them is parent to other, or one of them is root 
+            else:
                 return curr
-        
-        #if none of those conditions satsify then return null
         return 
-
-
-# class Solution:
-#     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-#         #brute force is doing dfs for both nodes, and finding common lowest node
-#         #for bst l < root < r
-#         # for lca, in case of 2 and 8, it was 6 becuase both were in different sub trees
-#         # or one of them is root 
-#         # or one of them is parent and other is child
-#         #point is whenever they're not in same subtree, we can find lca 
-#         #start at the root, since it's common ancestor to all 
-#         #move down, then check if elements are in same subtree or diff by comparing it to root 
-
-#         #pointer to move from node to node in tree, start at root 
-#         curr = root 
-
-#         #go through each node,so until curr is null
-#         while curr:
-#             #if one of nodes is root 
-#             if p.val == root.val or q.val == root.val:
-#                 return root
-#             #when both nodes in left subtree
-#             if p.val < curr.val and q.val < curr.val:
-#                 curr = curr.left 
-#             #when both nodes in right subtree
-#             elif p.val > curr.val and q.val > curr.val:
-#                 curr = curr.right
-#             #when both node in diff subtree, or one of them is parent to other, or one of them is root 
-#             else:
-#                 return curr
-#         return 
 
 
 
