@@ -17,12 +17,14 @@ class Solution:
         #left pointer starting at index 0
         l = 0
 
-        if(len(s)):
-            return 0
+        # if(len(s)):
+        #     return 0
 
         #iterating through right pointer in string 
 
         for r in range(len(s)):
+            #until there's char already in set, you keep moving left pointer and interating it 
+            # 
             while s[r] in charSet:
                 charSet.remove(s[l])
                 l+=1
