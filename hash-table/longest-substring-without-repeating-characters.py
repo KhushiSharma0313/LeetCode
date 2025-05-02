@@ -17,6 +17,9 @@ class Solution:
         #left pointer starting at index 0
         l = 0
 
+        if(len(s)):
+            return 0
+
         #iterating through right pointer in string 
 
         for r in range(len(s)):
