@@ -9,16 +9,20 @@ class Solution:
         # if not add it as is   
         n = len(intervals)
 
+        if n ==0:
+            return
+
         #sorting based on start time 
         intervals.sort( key = lambda i: i[0])
 
         #output
         res = [intervals[0]] # its start time will always be start time of intervals 
 
-
+        #iterating through array from 1 index 
         for start, end in intervals[1:]:
-            if res[-1][1] >= start:
-                res[-1][1] = max(end, res[-1][1])
+            lastEnd = res[-1][1]
+            if lastEnd >= start:
+                lastEnd = max(end, lastEnd)
             else:
                 res.append([start,end])
         return res
