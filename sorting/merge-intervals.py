@@ -9,8 +9,8 @@ class Solution:
         # if not add it as is   
         n = len(intervals)
 
-        if n ==0:
-            return
+        # if n == 0:
+        #     return
 
         #sorting based on start time 
         intervals.sort( key = lambda i: i[0])
