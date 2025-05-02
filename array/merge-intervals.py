@@ -22,7 +22,7 @@ class Solution:
         for start, end in intervals[1:]:
             lastEnd = res[-1][1]
             if lastEnd >= start:
-                lastEnd = max(end, lastEnd)
+                res[-1][1] = max(end, lastEnd)
             else:
                 res.append([start,end])
         return res
