@@ -36,8 +36,8 @@ class Solution:
         res = max(piles)
         #hours gonna take initially is 0 
 
-        if(len(piles)==0):
-            return 0
+        # if(len(piles)==0):
+        #     return 0
 
 
         while l <= r:
