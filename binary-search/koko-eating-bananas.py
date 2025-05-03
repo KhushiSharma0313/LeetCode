@@ -38,10 +38,7 @@ class Solution:
 
         if(len(piles)==0):
             return 0
-        
-        if(len(piles)==1):
-            return piles[0]
-        
+
 
         while l <= r:
             k = (l+r)//2
