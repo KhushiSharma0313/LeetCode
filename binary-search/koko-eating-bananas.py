@@ -35,6 +35,12 @@ class Solution:
         #result max possible value is maxp
         res = max(piles)
         #hours gonna take initially is 0 
+
+        if(len(piles)==0):
+            return 0
+        
+        if(len(piles)==1):
+            return piles[0]
         
 
         while l <= r:
