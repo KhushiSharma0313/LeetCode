@@ -16,7 +16,7 @@ class Solution:
         # if you have a carry, but no remaining nodes, create a node for the carry 
 
         #new linked list 
-        dummy = ListNode()
+        dummy = ListNode(0)
         curr = dummy 
 
         #carry for addition 
@@ -35,8 +35,10 @@ class Solution:
             carry = val // 10 
             val = val%10
 
+
             #update pointers
-            curr = curr.next
+            curr.next = ListNode(val)
+            curr = curr.next 
             l1 = l1.next if l1 else None 
             l2 = l2.next if l2 else None 
         
