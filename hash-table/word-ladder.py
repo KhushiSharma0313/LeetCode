@@ -43,10 +43,10 @@ class Solution:
         #data strcuture for bfs 
         visit = set([beginWord])
         q = deque([beginWord])
-        
+        res = 1
 
         while q:
-            res = 1
+           
             #for each word in the list
             for i in range(len(q)):
                 word = q.popleft()
@@ -61,7 +61,7 @@ class Solution:
                             visit.add(neigword)
                             q.append(neigword)
 
-                res +=1
+            res +=1
         return 0
 
 
