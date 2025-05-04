@@ -26,7 +26,7 @@ class Solution:
 
             if (r<0 or c<0 # if row or col is out of bounds
                 or r>=ROWS or c>=COLS
-                or board[r][c] != word[i]  # if it doesn match word 
+                or word[i] !=board[r][c]  # if it doesn match word 
                 or (r,c) in path): # if it's already in path 
                 return False 
             
@@ -34,9 +34,9 @@ class Solution:
             path.add((r,c))
 
             #run dfs in all four directions for next letter in word
-            res = (dfs(r+1,c,i+1),
-                    dfs(r-1,c,i+1),
-                    dfs(r,c+1,i+1),
+            res = (dfs(r+1,c,i+1) or 
+                    dfs(r-1,c,i+1) or 
+                    dfs(r,c+1,i+1) or 
                     dfs(r,c-1,i+1))
             
             #if any of dfs is true it's gonna return true 
