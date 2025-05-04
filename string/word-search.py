@@ -39,6 +39,8 @@ class Solution:
                     dfs(r,c+1,i+1) or 
                     dfs(r,c-1,i+1))
             
+            path.remove((r,c))
+            
             #if any of dfs is true it's gonna return true 
             return res
         
