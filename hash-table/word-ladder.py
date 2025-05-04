@@ -52,7 +52,7 @@ class Solution:
                 word = q.popleft()
                 if word == endWord:
                     return res
-                    
+
                 for j in range(len(word)):
                     pattern = word[:j] + "*" + word[j + 1:]
                     #check each word matching the pattern
@@ -61,7 +61,7 @@ class Solution:
                             visit.add(neigword)
                             q.append(neigword)
 
-                    res +=1
+                res +=1
         return 0
 
 
