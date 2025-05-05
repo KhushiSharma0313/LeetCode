@@ -34,13 +34,13 @@ class Solution:
             if c == "/":
                 #if its .. treat it as pop 
                 if curr == "..":
-                    curr = ""
+                    
                     if stack: stack.pop()
                 
                 # if it's anything but a empty string or . then append 
                 elif curr != "" and curr !=".":
                     stack.append(curr)
-                    curr = ""
+                curr = ""
             
             # if it's any other element, add it to string 
             else:
