@@ -66,7 +66,7 @@ class MedianFinder:
 
         if(len(self.small) == len(self.large)):
         #avg of max from small and min from large as median 
-            return (self.small[0]+ self.large[0])//2
+            return (-self.small[0]+ self.large[0]) /2
 
         
 
