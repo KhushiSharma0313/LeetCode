@@ -58,7 +58,7 @@ class MedianFinder:
 
         #median in small
         if(len(self.small)>len(self.large)):
-            return self.small[0]
+            return -self.small[0]
 
         #median in large 
         if(len(self.small) < len(self.large)):
