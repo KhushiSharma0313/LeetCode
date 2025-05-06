@@ -26,7 +26,7 @@ class Solution:
                 # pick top 3 
             words = r - l +1
 
-            if words > 3:
+            if words >= 3:
                 res.append([products[l],products[l+1], products[l+2]])
             elif words ==2:
                 res.append([products[l], products[l+1]])
