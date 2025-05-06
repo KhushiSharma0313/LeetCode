@@ -1,78 +1,78 @@
-class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
-        #declaring rows and cols 
-        ROWS, COLS = len(grid), len(grid[0])
-        island = 0 # counting how many islands total
-        visit = set() # we don't revisit a node
-        directions = [[1,0],[-1,0],[0,1],[0,-1]]  
+# class Solution:
+#     def numIslands(self, grid: List[List[str]]) -> int:
+#         #declaring rows and cols 
+#         ROWS, COLS = len(grid), len(grid[0])
+#         island = 0 # counting how many islands total
+#         visit = set() # we don't revisit a node
+#         directions = [[1,0],[-1,0],[0,1],[0,-1]]  
 
-        #helper function to run dfs recursively 
-        def dfs(r,c):
-            if (r,c) in visit:
-                return 
-            visit.add((r,c))
+#         #helper function to run dfs recursively 
+#         def dfs(r,c):
+#             if (r,c) in visit:
+#                 return 
+#             visit.add((r,c))
             
-            #run dfs on its neighbours 
-            for dr,dc in directions:
-                # rows and col of next element 
-                row = dr + r
-                col = dc + c
-                if (row in range(ROWS) and col in range(COLS)
-                    # and (row,col) not in visit 
-                    and grid[row][col] == "1") :
-                    dfs(row,col)
+#             #run dfs on its neighbours 
+#             for dr,dc in directions:
+#                 # rows and col of next element 
+#                 row = dr + r
+#                 col = dc + c
+#                 if (row in range(ROWS) and col in range(COLS)
+#                     # and (row,col) not in visit 
+#                     and grid[row][col] == "1") :
+#                     dfs(row,col)
             
 
-        #run dfs on each
-        for i in range(ROWS):
-            for j in range(COLS):
-                if (i,j) not in visit and grid[i][j] == "1":
-                    dfs(i,j)
-                    island +=1
+#         #run dfs on each
+#         for i in range(ROWS):
+#             for j in range(COLS):
+#                 if (i,j) not in visit and grid[i][j] == "1":
+#                     dfs(i,j)
+#                     island +=1
 
-        return island 
+#         return island 
 
         
 
 
 
 
-# class Solution:
-#     def numIslands(self, grid: List[List[str]]) -> int:
-#         # we go to 1, then look in all direction, if in any direction it has 1, we go there and so on
-#         # when no direction has 1, it's one island
-#         # then we look at remaining 1s
-#         # to not lose track of islands and reount, we'll store the visited ones in a set 
-#         # it's basically dfs 
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        # we go to 1, then look in all direction, if in any direction it has 1, we go there and so on
+        # when no direction has 1, it's one island
+        # then we look at remaining 1s
+        # to not lose track of islands and reount, we'll store the visited ones in a set 
+        # it's basically dfs 
 
-#         island = 0
-#         visited = set() # for 1s that are visited 
-#         rows = len(grid)
-#         cols = len(grid[0])
+        island = 0
+        visited = set() # for 1s that are visited 
+        rows = len(grid)
+        cols = len(grid[0])
 
-#  #helper function dfs, taking coordinates as input 
-#         def dfs(r,c):
-#             if (r,c) in visited:
-#                 return 
-#             visited.add((r,c))
-#             directions = [[1,0],[0,1],[-1,0],[0,-1]] # up, right, down, left
+ #helper function dfs, taking coordinates as input 
+        def dfs(r,c):
+            if (r,c) in visited:
+                return 
+            visited.add((r,c))
+            directions = [[1,0],[0,1],[-1,0],[0,-1]] # up, right, down, left
 
-#             # dr to move in row, dc to move in col 
-#             for dr, dc in directions:
-#                 nr = dr + r # adding direction in row coord, moving up or down 
-#                 nc = dc + c # adding direction in col coord, moving  left or right 
+            # dr to move in row, dc to move in col 
+            for dr, dc in directions:
+                nr = dr + r # adding direction in row coord, moving up or down 
+                nc = dc + c # adding direction in col coord, moving  left or right 
 
-#                 if(nr in range(rows) and nc in range(cols) and grid[nr][nc] == "1"):
-#                     dfs(nr,nc) #running dfs recursivley until all 1s visited 
+                if(nr in range(rows) and nc in range(cols) and grid[nr][nc] == "1"):
+                    dfs(nr,nc) #running dfs recursivley until all 1s visited 
 
-#         # point to point and run dfs if it's 1 and not visited
-#         for r in range(rows):
-#             for c in range(cols):
-#                 if((r,c) not in visited and grid[r][c] == "1"):
-#                     dfs(r,c)
-#                     island +=1
+        # point to point and run dfs if it's 1 and not visited
+        for r in range(rows):
+            for c in range(cols):
+                if((r,c) not in visited and grid[r][c] == "1"):
+                    dfs(r,c)
+                    island +=1
 
-#         return island
+        return island
 
 
 
