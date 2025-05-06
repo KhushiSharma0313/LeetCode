@@ -35,7 +35,7 @@ class TimeMap:
         # declare the string 
         res = ""
         #value of this key 
-        val = self.map[key]
+        val = self.map.get(key, [])
         # run binary search on this value to find exact or closer timestamp 
         l, r = 0, len(val) -1
 
