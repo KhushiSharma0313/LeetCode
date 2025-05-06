@@ -9,16 +9,7 @@
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        # check if element has duplicate or not 
-        seen = set()
-
-        # iterate through entire array 
-        for i in range(len(nums)):
-            if nums[i] in seen:
-                return True
-            # add this element to array 
-            seen.add(nums[i])
-        return False
+        return len(set(nums)) < len(nums)
 
 
 
