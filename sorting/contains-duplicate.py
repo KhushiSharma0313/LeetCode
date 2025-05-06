@@ -1,10 +1,25 @@
-# using a hashset since it only has unique elements 
+# brute force
+# taking one element going through the enitre array O(n^2)
+# 1,1,1,2,2,3,3,4,4 => index 1 and go till index n-1 and check element before it 
+# O(nlogn)
+# set() has unique values 
+# go through entire array and check if this is in set, and if it return truem and if not 
+# add to to set and return false 
+# time = O(n), space = O(n)
+
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        if len(set(nums)) < len(nums):
-            return True
-        else:
-            return False
+        # check if element has duplicate or not 
+        seen = set()
+
+        # iterate through entire array 
+        for i in range(len(nums)):
+            if nums[i] in seen:
+                return True
+            # add this element to array 
+            seen.add(nums[i])
+        return False
+
 
 
 
