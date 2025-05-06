@@ -18,7 +18,7 @@ class Solution:
                 row = dr + r
                 col = dc + c
                 if (row in range(ROWS) and col in range(COLS)
-                    and (row,col) not in visit 
+                    # and (row,col) not in visit 
                     and grid[row][col] == "1") :
                     dfs(row,col)
             
