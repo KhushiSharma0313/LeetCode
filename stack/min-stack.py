@@ -25,13 +25,13 @@ class MinStack:
     def push(self, val: int) -> None:
         self.stack.append(val)
         #for min stack, determine which val is min, the val itself or top val of stack 
-        val = min(val, self.minStack[-1] if self.minStack else val)
-        self.minStack.append(val)
+        # val = min(val, self.minStack[-1] if self.minStack else val)
+        # self.minStack.append(val)
         
 
     def pop(self) -> None:
         self.stack.pop()
-        self.minStack.pop()
+        # self.minStack.pop()
         
 
     def top(self) -> int:
@@ -40,7 +40,7 @@ class MinStack:
 
     def getMin(self) -> int:
         # return top value of min stack 
-        return self.minStack[-1]
+        return min(self.stack)
         
 
 
