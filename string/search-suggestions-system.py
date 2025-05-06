@@ -32,6 +32,8 @@ class Solution:
                 res.append([products[l], products[l+1]])
             elif words ==1:
                 res.append([products[l]])
+            else:
+                res.append([])
         
         return res
 
