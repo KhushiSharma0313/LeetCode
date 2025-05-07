@@ -1,49 +1,88 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        # brute force approach 
-        # 1 and 1 -> 1 get in list3
-        # 1 -> 3 -> 1 in list 3
-        #2,3 -> 2 in l3
-        #  
-        # optimized approach 
-        # 1, 1 & 2,3 & 4,4
-        # 1,1, 2,3 & 4,4, 
-        # 1,1,2,3,4,4
-        # n -> n/2 -> n/4 => logn 
+        # declare dummy node 
         dummy = ListNode()
         curr = dummy 
 
-        #when both lists exist
-        while list1 and list2: 
-
-            # list 1 element is smaller 
+        #iterating until one of the list is empty
+        while list1 and list2:
+            #if list1 has smaller value 
             if list1.val <= list2.val:
                 curr.next = list1
-                list1 = list1.next
-            #list 2 node is smaller
+                list1 = list1.next 
+            # if list2 has smaller value 
             else: 
                 curr.next = list2
                 list2 = list2.next 
             curr = curr.next 
         
-        #when list2 is empty 
+        #if list2 is empty 
         if list1:
             curr.next = list1
-            list1 = list1.next
-            curr = curr.next 
+            curr = curr.next
 
-        #when list1 is empty 
+        #if list1 is empty 
         if list2:
             curr.next = list2
-            list2 = list2.next
-            curr = curr.next 
+            curr = curr.next
         
         return dummy.next
+
+
+            
+
+
+
+
+
+
+
+# # Definition for singly-linked list.
+# # class ListNode:
+# #     def __init__(self, val=0, next=None):
+# #         self.val = val
+# #         self.next = next
+# class Solution:
+#     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+#         # brute force approach 
+#         # 1 and 1 -> 1 get in list3
+#         # 1 -> 3 -> 1 in list 3
+#         #2,3 -> 2 in l3
+#         #  
+#         # optimized approach 
+#         # 1, 1 & 2,3 & 4,4
+#         # 1,1, 2,3 & 4,4, 
+#         # 1,1,2,3,4,4
+#         # n -> n/2 -> n/4 => logn 
+#         dummy = ListNode()
+#         curr = dummy 
+
+#         #when both lists exist
+#         while list1 and list2: 
+
+#             # list 1 element is smaller 
+#             if list1.val <= list2.val:
+#                 curr.next = list1
+#                 list1 = list1.next
+#             #list 2 node is smaller
+#             else: 
+#                 curr.next = list2
+#                 list2 = list2.next 
+#             curr = curr.next 
+        
+#         #when list2 is empty 
+#         if list1:
+#             curr.next = list1
+#             list1 = list1.next
+#             curr = curr.next 
+
+#         #when list1 is empty 
+#         if list2:
+#             curr.next = list2
+#             list2 = list2.next
+#             curr = curr.next 
+        
+#         return dummy.next
 
 
 
