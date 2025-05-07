@@ -21,6 +21,9 @@
         #each layer have n, n/2, n/4 .... nodes
         # so time complexiy is nlogk
 
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        
                 
         def mergeList(l1,l2):
             dummy = ListNode()
