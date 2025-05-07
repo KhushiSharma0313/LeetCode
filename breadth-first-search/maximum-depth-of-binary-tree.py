@@ -4,13 +4,25 @@ class Solution:
         # left subtree = max length 
         # right subtree = max length 
         # recursive = root base + max ( maxDepth(left), maxDpeth(right))
+        #bfs 
         if not root:
             return 0
 
-        max_length = 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
-        
-        return max_length
+        q = deque([root]) #default to root 
+        max_len = 0
 
+        #until q is not empty
+        while q:
+            for i in range(len(q)):
+                node = q.popleft()
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+
+            max_len +=1
+        
+        return max_len
 
 
 # Definition for a binary tree node.
