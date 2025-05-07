@@ -39,8 +39,8 @@ class Solution:
             #get values already or default to 0
             count[n] = 1 +  count.get(n,0)
 
-        res = sorted(count.items(), key = lambda x: (x[1],x[0]))
-        return [item[1] for item in res[:k]]
+        res = sorted(count.items(), key = lambda x: x[0])
+        return [item[0] for item in res[:k]]
 
         
         # #map freq to nums elements 
