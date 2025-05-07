@@ -31,27 +31,31 @@ class Solution:
 
         res = []
 
-        #array for frquency 
-        freq = [[] for i in range(len(nums)+1)]
+        # #array for frquency 
+        # freq = [[] for i in range(len(nums)+1)]
 
         #calculate count 
         for n in nums:
             #get values already or default to 0
             count[n] = 1 +  count.get(n,0)
+
+        res = sorted(count.items(), key = lambda x: (x[1],x[0]))
+        return [item[0] for item in res[:k]]
+
         
-        #map freq to nums elements 
-        for n,c in count.items():
-            # the number is gonna be the index of frequency
-            freq[c].append(n)
+        # #map freq to nums elements 
+        # for n,c in count.items():
+        #     # the number is gonna be the index of frequency
+        #     freq[c].append(n)
         
-        #add top k value to our result 
-        #iterating through freq in desc order, since we want most frequent first 
-        for i in range(len(freq)-1,0,-1):
-            for n in freq[i]:
-                res.append(n)
+        # #add top k value to our result 
+        # #iterating through freq in desc order, since we want most frequent first 
+        # for i in range(len(freq)-1,0,-1):
+        #     for n in freq[i]:
+        #         res.append(n)
                 
-                if len(res) ==k:
-                    return res
+        #         if len(res) ==k:
+        #             return res
         
         
         
