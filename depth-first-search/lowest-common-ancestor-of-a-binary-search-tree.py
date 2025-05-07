@@ -15,7 +15,7 @@ class Solution:
             if p.val < curr.val and q.val < curr.val:
                 curr = curr.left 
         # if they are in right sub tree
-            if p.val > curr.val and q.val > curr.val:
+            elif p.val > curr.val and q.val > curr.val:
                 curr = curr.right 
         # they are in diff sub tree or if one of them is parent  
             else:
