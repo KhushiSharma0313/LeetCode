@@ -3,7 +3,7 @@ class Solution:
         # for prod apart from itself we need to take product of prefix and postfix 
         # then multiply together and that's prod except itself 
         prefix = 1 #  by default it's 1 for every element 
-        res = [1] *len(nums)
+        res = [] *len(nums)
 
         # left to right interable to calculate prefix   
         for i in range(len(nums)):
