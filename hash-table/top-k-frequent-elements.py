@@ -37,7 +37,7 @@ class Solution:
         #calculate count 
         for n in nums:
             #get values already or default to 0
-            count[n] = 1 + count.get(n,0)
+            count[n] =+ 1 
         
         #map freq to nums elements 
         for n,c in count.items():
